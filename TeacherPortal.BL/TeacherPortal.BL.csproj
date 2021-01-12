@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="DatabaseContext">
+      <HintPath>..\..\StudentGradingDB\Repositories\bin\Debug\netcoreapp3.1\DatabaseContext.dll</HintPath>
+    </Reference>
+    <Reference Include="Entities">
+      <HintPath>..\..\StudentGradingDB\Repositories\bin\Debug\netcoreapp3.1\Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Repositories">
+      <HintPath>..\..\StudentGradingDB\Repositories\bin\Debug\netcoreapp3.1\Repositories.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
