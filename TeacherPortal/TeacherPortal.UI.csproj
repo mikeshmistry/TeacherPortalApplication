@@ -11,6 +11,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TeacherPortal.BL\TeacherPortal.BL.csproj" />
+    <ProjectReference Include="..\TeacherPortal.Security\TeacherPortal.Security.csproj" />
+    <ProjectReference Include="..\TeacherPortal.UI.Models\TeacherPortal.UI.Models.csproj" />
   </ItemGroup>
 
 </Project>
