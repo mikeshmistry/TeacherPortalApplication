@@ -1,0 +1,71 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+
+    <div class="form-row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.TeacherId"></label>
+            <input type="text" asp-for="RegisterUserModel.TeacherId" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.TeacherId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.FirstName"></label>
+            <input type="text" asp-for="RegisterUserModel.FirstName" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.FirstName" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.LastName"></label>
+            <input asp-for="RegisterUserModel.LastName" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.UserName"></label>
+            <input asp-for="RegisterUserModel.UserName" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.UserName" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.Email"></label>
+            <input asp-for="RegisterUserModel.Email" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.Password"></label>
+            <input asp-for="RegisterUserModel.Password" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="RegisterUserModel.ConfirmPassword"></label>
+            <input asp-for="RegisterUserModel.ConfirmPassword" class="form-control" />
+            <span asp-validation-for="RegisterUserModel.ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
