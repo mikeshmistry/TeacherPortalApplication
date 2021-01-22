@@ -193,7 +193,43 @@ namespace TeacherPortal.BL.BusinessClasses
             return isRegistered;
         }
 
+
+        /// <summary>
+        /// Method to return all the course that the teacher is teaching
+        /// </summary>
+        /// <param name="teachertId">The id of the teacher</param>
+        /// <returns>A list of enrolled courses</returns>
+        public async Task<List<CourseModel>> GetEnrolledCoursesAsync(int teacherId)
+        {
+            //returned list of enrolled course
+            List<CourseModel> courseList = new List<CourseModel>();
+
+            try
+            {
+                List<Entities.Course> courses = await Task.Run(() => teacherRepository.GetAssignedCourses(teacherId));
+
+                //convert to course Model
+                courseList = (from course in courses
+                              select new CourseModel
+                              {
+                                  CourseId = course.CourseId,
+                                  Name = course.Name,
+                                  Description = course.Description
+
+                              }).ToList<CourseModel>();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return courseList;
+        }
+
         #endregion
+
+
 
         #region Private Methods
 

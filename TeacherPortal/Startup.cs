@@ -44,6 +44,7 @@ namespace TeacherPortal
 
             //Add the Application User
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddUserManager<ApplicationUserManager>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();

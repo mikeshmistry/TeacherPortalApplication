@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace StudentPortal.UI.Controllers
+namespace TeacherPortal.UI.Controllers
 {
     /// <summary>
     /// Controller For the Logged in teacher
     /// </summary>
-    [AutoValidateAntiforgeryToken]
     [Authorize]
     public class MainController : Controller
     {
-
+       
         #region Action Methods
 
         /// <summary>
@@ -19,8 +19,8 @@ namespace StudentPortal.UI.Controllers
         /// <returns>The main view for the logged in user</returns>
         public IActionResult Index()
         {
-            return View("Views/Main.cshtml");
-           
+            return RedirectToAction("Index", "ViewAssignedCourses");
+
         }
 
         #endregion

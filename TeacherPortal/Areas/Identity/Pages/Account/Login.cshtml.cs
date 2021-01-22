@@ -17,7 +17,7 @@ namespace TeacherPortal.UI.Areas.Identity.Pages.Account
     {
         #region Fields
 
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationUserManager _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
@@ -25,7 +25,7 @@ namespace TeacherPortal.UI.Areas.Identity.Pages.Account
 
         public LoginModel(SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager)
+            ApplicationUserManager userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

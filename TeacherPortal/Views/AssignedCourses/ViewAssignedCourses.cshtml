@@ -1,0 +1,56 @@
+﻿@*
+    View for viewing enrolled courses
+*@
+
+
+@using TeacherPortal.UI.Models.Models;
+
+@model TeacherModel
+
+@{
+    ViewData["Title"] = "View Assigned Courses";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+
+
+<h4>Assigned Courses</h4>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+              Course Name
+            </th>
+            <th>
+                Course Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Courses != null && Model.Courses.Count !=0)
+        {
+            @foreach (var item in Model.Courses)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>
+                    You Are Not Assigned To Any Courses
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
