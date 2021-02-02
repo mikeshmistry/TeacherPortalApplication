@@ -61,9 +61,9 @@ namespace TeacherPortal.BL.BusinessClasses
         }
 
         /// <summary>
-        /// Method to find a teacher by the id 
+        /// Method to find a course by the id 
         /// </summary>
-        /// <param name="id">The teacher id for the teacher to find</param>
+        /// <param name="id">The course id for the course to find</param>
         /// <returns>A course if found. Null otherwise</returns>
         public async Task<CourseModel> FindCourseAsync(int id)
         {
@@ -209,6 +209,37 @@ namespace TeacherPortal.BL.BusinessClasses
             }
 
             return added;
+        }
+
+        /// <summary>
+        /// Method to get a list of enrolled students from a course
+        /// </summary>
+        /// <param name="courseId">The courseId of the course</param>
+        /// <returns>A List of students for a course</returns>
+        public async Task<List<StudentModel>> GetEnrolledStudentsAsync(int courseId)
+        {
+            var studentList = new List<StudentModel>();
+
+
+            try
+            {
+               var enrolledStudents = await Task.Run(() => courseRepository.GetEnrolledStudents(courseId));
+
+                studentList = (from student in enrolledStudents
+                               select new StudentModel()
+                               {
+                                   StudentId = student.StudentId,
+                                   FirstName = student.FirstName,
+                                   LastName = student.LastName       
+                               }).ToList<StudentModel>();
+            }
+            catch(Exception ex) 
+            { 
+            
+            }
+
+
+            return studentList;
         }
 
         #endregion
