@@ -14,8 +14,6 @@ namespace TeacherPortal.UI.Controllers
     [Authorize]
     public class ViewAssignedCoursesController : Controller
     {
-
-
         #region Fields
 
         /// <summary>
@@ -68,9 +66,10 @@ namespace TeacherPortal.UI.Controllers
         #region Non Action Methods
 
         /// <summary>
-        /// Gets all enrolled courses for a student
+        /// Gets all enrolled courses for a teacher
         /// </summary>
-        /// <param name="student">The student to get the course for</param>
+        /// <param name="teacher">The teacher to get the course for</param>
+        [NonAction]
         private async Task GetEnrolledCoursesAsync(TeacherModel teacher)
         {
             //Get the teacher Id
@@ -83,6 +82,7 @@ namespace TeacherPortal.UI.Controllers
         /// Non action method to retrieve the logged in teachers teacherId 
         /// </summary>
         /// <returns>The teacherId</returns>
+        [NonAction]
         private async Task<int> GetTeacherId()
         {
             var studentId = 0; 

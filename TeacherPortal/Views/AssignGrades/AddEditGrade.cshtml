@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@using TeacherPortal.UI.Models.Models;
+
+@model GradeModel
+
+
+
+<h4>Assign Grade</h4>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AssginGrade">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" readonly asp-for="StudentId" />
+            <input type="hidden" readonly asp-for="CourseId" />
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Student.FirstName" class="control-label"></label>
+                </div>
+                <div class="col-md-*">
+                    <p>@Model.Student.FirstName</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Student.LastName" class="control-label"></label>
+                </div>
+                <div class="col-md-*">
+                    <p>@Model.Student.LastName</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Course.Name" class="control-label"></label>
+                </div>
+                <div class="col-md-*">
+                    <p>@Model.Course.Name</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="LetterGrade" class="control-label"></label>
+
+                </div>
+                <div class="col-md-*">
+                    <input asp-for="LetterGrade" maxlength="2" size="2" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-*">
+                    <span asp-validation-for="LetterGrade" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-controller="AssignGrades" asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to AssignGrade Page</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
