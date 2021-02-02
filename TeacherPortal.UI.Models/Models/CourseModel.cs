@@ -19,14 +19,14 @@ namespace TeacherPortal.UI.Models.Models
         /// Name of the course this is required
         /// </summary>
         [Required]
-        [Display(Name = "Course Name")]
+        [Display(Name = "Course Name:")]
         public string Name { get; set; }
 
         /// <summary>
         /// Description of the course this is required
         /// </summary>
         [Required]
-        [Display(Name = "Course Description")]
+        [Display(Name = "Course Description:")]
         public string Description { get; set; }
         #endregion
 

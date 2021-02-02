@@ -19,14 +19,14 @@ namespace TeacherPortal.UI.Models.Models
         /// FirstName of the student this is a required field
         /// </summary>
         [Required]
-        [Display(Name = "First Name")]
+        [Display(Name = "First Name:")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// LastName of the student this is a required field
         /// </summary>
         [Required]
-        [Display(Name ="Last Name")]
+        [Display(Name ="Last Name:")]
         public string LastName { get; set; }
 
        /// <summary>
